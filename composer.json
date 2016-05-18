@@ -1,6 +1,6 @@
 {
-  "name": "minube/amplitude-php",
-  "homepage": "http://minube.com",
+  "name": "pdffiller/amplitude-php",
+  "homepage": "http://www.pdffiller.com",
   "description": "Amplitude SDK for PHP - Use Amplitude in your PHP project",
   "keywords": [
     "amplitude",
@@ -10,8 +10,8 @@
   "license": "Apache-2.0",
   "authors": [
     {
-      "name": "Minube",
-      "homepage": "http://www.minube.com"
+      "name": "PDFfiller aplitude-php",
+      "homepage": "http://www.pdffiller.com"
     }
   ],
   "autoload": {
