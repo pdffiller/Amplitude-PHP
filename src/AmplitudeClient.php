@@ -1,7 +1,7 @@
 <?php
 namespace Amplitude;
 
-use Guzzlehttp\Http\Client;
+use GuzzleHttp\Client;
 
 /**
  * Default Amplitude client implementation
