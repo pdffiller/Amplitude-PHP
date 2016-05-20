@@ -47,8 +47,11 @@ class AmplitudeClient implements AmplitudeClientInterface
      */
     public function track(Message\Event $event)
     {
-        $request = $this->getClient()->post(null, null, $this->getPostBody($event));
-        return $request->send();
+        $client = $this->getClient();
+        $body = $this->getPostBody($event);
+        $response = $client->post(self::AMPLITUDE_URL, $body);
+
+        return $response->getStatusCode();
     }
 
     /**
@@ -58,10 +61,10 @@ class AmplitudeClient implements AmplitudeClientInterface
      */
     protected function getPostBody(Message\Event $event)
     {
-        return array(
+        return array( 'form_params' => array(
             'api_key' => $this->apiKey,
             'event' => $event->format(),
-        );
+        ));
     }
 
     /**
@@ -71,7 +74,7 @@ class AmplitudeClient implements AmplitudeClientInterface
     protected function getClient()
     {
         if (null === $this->client) {
-            $this->client = new Client(self::AMPLITUDE_URL);
+            $this->client = new Client( ['base_uri' =>self::AMPLITUDE_URL] );
         }
         return $this->client;
     }
